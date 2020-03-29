@@ -1,0 +1,22 @@
+version: "3.7"
+
+services: 
+  bvargaweb:
+    image: "bvarga/bvarga.dev"
+    networks: 
+      - proxy
+    deploy:
+      update_config:
+        order: start-first
+      labels:
+        - "traefik.enable=true"
+        - "traefik.http.services.bvargaweb.loadbalancer.server.port=80"
+        - "traefik.http.routers.bvargaweb.rule=Host(`${DOMAIN}`)"
+        - "traefik.http.routers.bvargaweb.entrypoints=web,websecure"
+        - "traefik.http.routers.bvargaweb.service=bvargaweb"
+        - "traefik.http.routers.bvargaweb.tls=true"
+        - "traefik.http.routers.bvargaweb.tls.certresolver=${CERT_RESOLVER}"
+networks:
+ proxy:
+  name: "${DOCKER_STACK}_proxy" 
+  external: true
