@@ -2,7 +2,7 @@ version: "3.7"
 
 services: 
   bvargaweb:
-    image: "bvarga/bvarga.dev"
+    image: "warnyul/bvarga.dev:0.1"
     networks: 
       - proxy
     deploy:
