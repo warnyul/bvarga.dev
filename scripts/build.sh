@@ -3,5 +3,7 @@
 # Variables
 BASEDIR=$(dirname "$0")
 PROJECTDIR=$BASEDIR/..
+IMAGE_NAME="warnyul/bvarga.dev"
+VERSION=$(date +%s)
 
-docker build -t "warnyul/bvarga.dev" $PROJECTDIR
+docker build -t "$IMAGE_NAME:$VERSION" $PROJECTDIR
