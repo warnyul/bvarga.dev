@@ -9,7 +9,7 @@ source ${PROJECTDIR}/.env 2> /dev/null
 source ${PROJECTDIR}/.env.dev
 set +a
 
-docker build -t "bvarga/bvarga.dev" $PROJECTDIR
+$BASEDIR/build.sh
 
 docker stack deploy $DOCKER_STACK \
     -c ${PROJECTDIR}/docker-compose.yml
