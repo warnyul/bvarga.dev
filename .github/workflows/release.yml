@@ -10,11 +10,8 @@ jobs:
 
     runs-on: ubuntu-18.04
     env:
-      ENVIRONMENT: ${{ secrets.ENVIRONMENT}}
-      DOCKER_CA: ${{ secrets.DOCKER_CA}}
-      DOCKER_CERT: ${{ secrets.DOCKER_CERT}}
-      DOCKER_KEY: ${{ secrets.DOCKER_KEY}}
-      HOST: ${{ secrets.HOST}}
+      DOCKER_USER: ${{ secrets.DOCKER_USER}}
+      DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD}}
     steps:
     - uses: actions/checkout@v2
     - name: Make release
