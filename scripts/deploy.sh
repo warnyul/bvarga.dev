@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# Fail fast
+set -e
+
 # Variables
 BASEDIR=$(dirname "$0")
 PROJECTDIR=$BASEDIR/..
