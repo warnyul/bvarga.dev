@@ -2,12 +2,14 @@ version: "3.7"
 
 services: 
   bvargaweb:
-    image: "warnyul/bvarga.dev:${VERSION}"
+    image: "${IMAGE}"
     networks: 
       - proxy
     deploy:
       update_config:
         order: start-first
+        delay: 10s
+        failure_action: rollback
       labels:
         - "traefik.enable=true"
         - "traefik.http.services.bvargaweb.loadbalancer.server.port=80"
