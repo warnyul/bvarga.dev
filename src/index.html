@@ -5,14 +5,16 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Balázs Varga</title>
+        <link rel="preconnect" href="https://0.gravatar.com">
         <style>
         @font-face {
             font-family: "JetBrainsMono-Regular";
-            src: url("fonts/JetBrainsMono-Regular.eot");
-            src: url('fonts/JetBrainsMono-Regular.eot?#iefix') format('embedded-opentype');
-            src: url("fonts/JetBrainsMono-Regular.woff2") format("woff2"),
-            url("fonts/JetBrainsMono-Regular.woff") format("woff"),
-            url('fonts/JetBrainsMono-Regular.ttf') format('truetype');
+            src: local("fonts/JetBrainsMono-Regular.eot");
+            src: local('fonts/JetBrainsMono-Regular.eot?#iefix') format('embedded-opentype');
+            src: local("fonts/JetBrainsMono-Regular.woff2") format("woff2"),
+            local("fonts/JetBrainsMono-Regular.woff") format("woff"),
+            local('fonts/JetBrainsMono-Regular.ttf') format('truetype');
+            font-display: swap;
         }
         html, body {
             margin: 0;
@@ -41,10 +43,6 @@
             
             display: block;
             float: left;
-        }
-
-        .at {
-            background: url('https://api.iconify.design/mdi:at.svg') no-repeat center center / contain;
         }
 
         footer {
