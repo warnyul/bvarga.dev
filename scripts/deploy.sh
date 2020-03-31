@@ -8,7 +8,7 @@ BASEDIR=$(dirname "$0")
 PROJECTDIR=$BASEDIR/..
 DOCKER_CONFIG_DIR=$PROJECTDIR/.docker
 IMAGE_NAME="warnyul/bvarga.dev"
-IMAGE_VERSION="$(git describe --tags)"
+IMAGE_VERSION=$(git describe --abbrev=0)
 
 set -a
 IMAGE="$IMAGE_NAME:$IMAGE_VERSION"
