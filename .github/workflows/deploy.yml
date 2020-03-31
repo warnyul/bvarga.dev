@@ -16,8 +16,7 @@ jobs:
       DOCKER_CERT: ${{ secrets.DOCKER_CERT}}
       DOCKER_KEY: ${{ secrets.DOCKER_KEY}}
     steps:
-    - uses: actions/checkout@v2
-    - run: git fetch --tags
+    - uses: actions/checkout@v1
     - name: Setup
       run: ./scripts/before_deploy.sh
     - name: Run Deploy
