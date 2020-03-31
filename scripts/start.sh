@@ -3,6 +3,7 @@
 # Variables
 BASEDIR=$(dirname "$0")
 PROJECTDIR=$BASEDIR/..
+VERSION=latest
 
 set -a
 source ${PROJECTDIR}/.env 2> /dev/null
