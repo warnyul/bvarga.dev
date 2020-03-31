@@ -6,9 +6,13 @@ services:
     networks: 
       - proxy
     deploy:
-      update_config:
+      rollback_config:
+        parallelism: 1
         order: start-first
-        delay: 10s
+      update_config:
+        parallelism: 1
+        order: start-first
+        delay: 30s
         failure_action: rollback
       labels:
         - "traefik.enable=true"
