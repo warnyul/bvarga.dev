@@ -4,9 +4,9 @@
 BASEDIR=$(dirname "$0")
 PROJECTDIR=$BASEDIR/..
 DOCKER_CONFIG_DIR=$PROJECTDIR/.docker
-VERSION=$(git describe --tags)
 
 set -a
+VERSION=$(git describe --tags)
 source ${PROJECTDIR}/.env
 set +a
 
