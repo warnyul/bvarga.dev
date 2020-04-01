@@ -1,0 +1,20 @@
+{
+  "name": "bvarga.dev",
+  "version": "0.2.0",
+  "description": "Personal website and portfolio",
+  "main": "src/index.html",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/warnyul/bvarga.dev.git"
+  },
+  "author": "Balázs Varga",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/warnyul/bvarga.dev/issues"
+  },
+  "homepage": "https://github.com/warnyul/bvarga.dev",
+  "devDependencies": {
+    "css-minify": "^1.0.1",
+    "html-minifier": "^4.0.0"
+  }
+}
