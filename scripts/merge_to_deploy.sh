@@ -8,5 +8,5 @@ git pull
 git checkout deploy/prod
 git pull
 git merge master --ff
-git push --all
+git push
 git checkout master
