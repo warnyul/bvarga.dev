@@ -23,6 +23,10 @@ $PROJECTDIR/node_modules/html-minifier/cli.js \
     --use-short-doctype \
     --minify-css true \
     --minify-js true \
+    --minify-urls true \
+    --sort-attributes \
+    --sort-class-name \
+    --use-short-doctype \
     --input-dir $PROJECTDIR/src/html \
     --output-dir $BUILDDIR
 
