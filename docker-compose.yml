@@ -7,7 +7,6 @@ services:
       - proxy
     stop_grace_period: 60s
     volumes:
-       - /etc/localtime:/etc/localtime:ro
        - cache:/data/nginx/cache
     deploy:
       update_config:
