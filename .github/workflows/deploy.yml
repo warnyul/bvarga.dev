@@ -20,6 +20,9 @@ jobs:
     - name: Setup
       run: ./scripts/before_deploy.sh
     - name: Run Deploy
+      uses: actions/setup-node@v1
+      with:
+        node-version: '13.12.0'
       run: ./scripts/deploy.sh
     - name: Clean
       if: always()

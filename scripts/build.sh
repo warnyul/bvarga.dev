@@ -11,7 +11,7 @@ rm -rf $BUILDDIR
 mkdir -p $BUILDDIR
 
 # Install dependencies
-npm i
+npm ci
 
 # Minify css
 $PROJECTDIR/node_modules/css-minify/bin/css-minify.js css-minify -d  $PROJECTDIR/src/css
