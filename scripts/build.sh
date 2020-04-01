@@ -13,15 +13,12 @@ mkdir -p $BUILDDIR
 # Install dependencies
 npm ci
 
-# Minify css
-$PROJECTDIR/node_modules/css-minify/bin/css-minify.js css-minify -d  $PROJECTDIR/src/css
-mv $PROJECTDIR/css-dist $BUILDDIR/css
-
 $PROJECTDIR/node_modules/html-minifier/cli.js \
     --collapse-whitespace \
     --remove-comments \
     --remove-optional-tags \
     --remove-redundant-attributes \
+    --remove-script-type-attributes \
     --remove-tag-whitespace \
     --use-short-doctype \
     --minify-css true \
