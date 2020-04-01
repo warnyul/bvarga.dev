@@ -5,14 +5,13 @@ services:
     image: "${IMAGE}"
     networks: 
       - proxy
+    stop_grace_period: 30s
     deploy:
-      rollback_config:
-        parallelism: 1
-        order: start-first
       update_config:
         parallelism: 1
         order: start-first
-        delay: 30s
+        delay: 10s
+        monitor: 30s
         failure_action: rollback
       labels:
         - "traefik.enable=true"
