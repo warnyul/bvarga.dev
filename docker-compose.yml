@@ -6,11 +6,14 @@ services:
     networks: 
       - proxy
     stop_grace_period: 60s
+    volumes:
+       - /etc/localtime:/etc/localtime:ro
+       - cache:/data/nginx/cache
     deploy:
       update_config:
         parallelism: 1
         order: start-first
-        delay: 10s
+        delay: 0s
         monitor: 30s
         failure_action: rollback
       labels:
@@ -25,3 +28,8 @@ networks:
  proxy:
   name: "${DOCKER_STACK}_proxy" 
   external: true
+volumes:
+  cache:
+    driver_opts:
+      type: tmpfs
+      device: tmpfs
