@@ -31,6 +31,6 @@ $PROJECTDIR/node_modules/html-minifier/cli.js \
     --output-dir $BUILDDIR
 
 # Copy fonts to dist folder
-cp -R $PROJECTDIR/src/assets/ $BUILDDIR
+cp -a $PROJECTDIR/src/assets/. $BUILDDIR
 
 docker build -t "$IMAGE_NAME" $PROJECTDIR
