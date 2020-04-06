@@ -17,9 +17,6 @@ jobs:
       DOCKER_KEY: ${{ secrets.DOCKER_KEY}}
     steps:
     - uses: actions/checkout@v1
-    - uses: actions/setup-node@v1
-      with:
-        node-version: '13.12.0'
     - name: Setup
       run: ./scripts/before_deploy.sh
     - name: Run Deploy
