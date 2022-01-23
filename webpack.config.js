@@ -4,6 +4,7 @@ const TerserPlugin = require("terser-webpack-plugin");
 const path = require('path');
 
 module.exports = {
+  mode: "production",
   entry: './src/js/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -55,5 +56,12 @@ module.exports = {
           }
       }),
     ],
+  },
+  devServer: {
+    static: {
+      directory: path.join(__dirname, 'dist'),
+    },
+    compress: true,
+    port: 9000,
   },
 };
