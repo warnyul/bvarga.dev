@@ -4,8 +4,8 @@
   "description": "Personal website and portfolio",
   "main": "src/index.html",
   "scripts": {
-    "build": "./scripts/minify.sh"
-},
+    "build": "webpack --config webpack.config.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/warnyul/bvarga.dev.git"
@@ -17,7 +17,15 @@
   },
   "homepage": "https://bvarga.dev",
   "devDependencies": {
+    "copy-webpack-plugin": "^10.2.1",
     "firebase-tools": "^10.1.2",
-    "html-minifier": "^4.0.0"
+    "html-minifier": "^4.0.0",
+    "html-minimizer-webpack-plugin": "^3.5.0",
+    "terser-webpack-plugin": "^5.3.0",
+    "webpack": "^5.67.0",
+    "webpack-cli": "^4.9.1"
+  },
+  "dependencies": {
+    "firebase": "^9.6.4"
   }
 }
