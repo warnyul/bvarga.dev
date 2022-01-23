@@ -3,6 +3,9 @@
   "version": "0.2.0",
   "description": "Personal website and portfolio",
   "main": "src/index.html",
+  "scripts": {
+    "build": "./scripts/minify.sh"
+},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/warnyul/bvarga.dev.git"
@@ -12,7 +15,7 @@
   "bugs": {
     "url": "https://github.com/warnyul/bvarga.dev/issues"
   },
-  "homepage": "https://github.com/warnyul/bvarga.dev",
+  "homepage": "https://bvarga.dev",
   "devDependencies": {
     "firebase-tools": "^10.1.2",
     "html-minifier": "^4.0.0"

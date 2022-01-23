@@ -1,10 +1,6 @@
 # bvarga.dev
 
-![build](https://github.com/warnyul/bvarga.dev/workflows/build/badge.svg) ![deploy](https://github.com/warnyul/bvarga.dev/workflows/deploy/badge.svg)
-
-This repository contains my personal website. I want a small page with minimalt design. So, it is a static HTML page. To easy deployment it is embedded in a Nginx Docker image.
-
-In the [docker-compose.yml](docker-compose.yml) I have defined an external `${DOCKER_STACK}_proxy` network, thus the service easily bindable to a public domain. But I recommend to use [Traefik proxy](https://github.com/warnyul/traefik-docker-compose), because I have configured that already.
+This repository contains my personal website. I want a small page with minimalt design. So, it is a static HTML page which deployed to Firabse Hosting.
 
 ## License
 

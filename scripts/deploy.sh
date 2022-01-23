@@ -1,25 +1,7 @@
 #!/usr/bin/env bash
 
-# Fail fast
-set -e
+if [ -z ${FIREBASE_HOSTING_CHANNEL_ID+x} ]; then
+    FIREBASE_HOSTING_CHANNEL_ID="development"
+fi
 
-# Variables
-BASEDIR=$(dirname "$0")
-PROJECTDIR=$BASEDIR/..
-DOCKER_CONFIG_DIR=$PROJECTDIR/.docker
-IMAGE_NAME="warnyul/bvarga.dev"
-IMAGE_VERSION=$(git describe --abbrev=0)
-
-set -a
-IMAGE="$IMAGE_NAME:$IMAGE_VERSION"
-source ${PROJECTDIR}/.env
-set +a
-
-docker \
-  --tlsverify \
-  -H=$HOST:2376 \
-  --tlscacert=$DOCKER_CONFIG_DIR/ca.pem \
-  --tlscert=$DOCKER_CONFIG_DIR/cert.pem \
-  --tlskey=$DOCKER_CONFIG_DIR/key.pem \
-  stack deploy $DOCKER_STACK \
-  -c $PROJECTDIR/docker-compose.yml
+./node_modules/firebase-tools/lib/bin/firebase.js hosting:channel:deploy "${FIREBASE_HOSTING_CHANNEL_ID}"
