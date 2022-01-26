@@ -5,7 +5,7 @@
   "main": "src/index.html",
   "scripts": {
     "build": "webpack --config webpack.config.js",
-    "start": "npx webpack serve --mode=development"
+    "start": "npx webpack serve --mode development --config webpack.config.js --stats verbose"
   },
   "repository": {
     "type": "git",

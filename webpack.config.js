@@ -7,8 +7,9 @@ module.exports = {
   mode: "production",
   entry: './src/js/index.js',
   output: {
+    strictModuleErrorHandling: true,
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js',
+    filename: 'bundle.js'
   },
   module: {
     rules: [
@@ -53,6 +54,7 @@ module.exports = {
             keep_classnames: undefined,
             keep_fnames: false,
             safari10: false,
+            sourceMap: true,
           }
       }),
     ],
