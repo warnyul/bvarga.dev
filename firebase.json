@@ -8,6 +8,10 @@
     ],
     "rewrites": [
       {
+        "source": "/watchfaces-privacy-policy",
+        "destination": "/watchfaces-privacy-policy.html"
+      },
+      {
         "source": "**",
         "destination": "/index.html"
       }
