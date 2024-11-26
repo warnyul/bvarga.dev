@@ -28,6 +28,6 @@
     "webpack-dev-server": "^4.7.3"
   },
   "dependencies": {
-    "firebase": "^10.0.0"
+    "firebase": "^11.0.0"
   }
 }
