@@ -19,7 +19,7 @@ const outputDir = path.join(__dirname, 'dist');
 module.exports = {
   mode: "production",
     entry: {
-        index: './src/js/app.js',
+        index: './src/js/index.js',
     },
     output: {
         path: outputDir,
