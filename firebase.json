@@ -9,12 +9,24 @@
     ],
     "rewrites": [
       {
-        "source": "/watchfaces-privacy-policy",
-        "destination": "/watchfaces-privacy-policy.html"
-      },
-      {
         "source": "**",
         "destination": "/index.html"
+      }
+    ],
+    "headers": [
+      {
+        "source": "**/*.@(ico|jpg|jpeg|gif|png|webp|js|css)",
+        "headers" : [{
+          "key" : "Cache-Control",
+          "value" : "max-age=31536000"
+        }]
+      },
+      {
+        "source": "**/*.@(eot|otf|ttf|ttc|woff|woff2|font.css)",
+        "headers" : [{
+          "key" : "Cache-Control",
+          "value" : "max-age=31536000"
+        }]
       }
     ]
   }
