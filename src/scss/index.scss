@@ -1,0 +1,150 @@
+@import "fontawesome";
+
+// Variables
+//$font-family: 'Roboto', sans-serif;
+//$background-color: #EAEAEA;
+//$text-color: #232323;
+//$primary-color: #000;
+//$hover-color: #333;
+//$link-color: #fff;
+//$border-radius: 4px;
+//$gap: 16px;
+//$header-font-size: 24px;
+//$button-padding: 24px;
+//$button-font-size: 16px;
+
+$font-family: 'Poppins', 'Arial', sans-serif;
+$background-color: #D9E2EC;
+$text-color: #00509E;
+$primary-color: #4B5563;
+$hover-color: #3CB371;
+$link-color: #FFF;
+$border-radius: 4px;
+$gap: 16px;
+$header-font-size: 24px;
+$button-padding: 24px;
+$button-font-size: 16px;
+
+// Reset
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+  
+// General styles
+html, body {
+    font-family: $font-family;
+    height: 100%;
+    margin: 0;
+    background: $background-color;
+}
+
+.clazz-container {
+    width: 100%;
+    min-height:100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: $gap;
+    position: relative;
+
+    > * {
+        max-width: 640px;
+    }
+}
+
+.clazz-content {
+    flex: 1 0 auto;
+    width: 100%;
+    
+    > * {
+        margin-bottom: $gap;
+    }
+}
+
+// Header
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: $gap 0px calc($gap * 2);
+}
+
+.clazz-profile-image {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+
+h1 {
+    color: $text-color;
+    margin: $gap 0px calc($gap * 0.75);
+    font-size: $header-font-size;
+    line-height: 1;
+    font-weight: 700;
+    text-align: center;
+}
+
+// Button Styles
+.clazz-button-container a {
+    background-color: $primary-color;
+    border-radius: $border-radius;
+    color: $link-color;
+    padding: $button-padding;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 16px;
+    line-height: 24px;
+    transition: background-color 0.3s ease;
+}
+
+.clazz-button-container a {
+    &:hover {
+        background-color: $hover-color;
+    }
+}
+
+// Social Links
+.clazz-social-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: calc($gap / 2);
+}
+
+.clazz-social-link-container a {
+    display: inline-block;
+    color: $text-color;
+    padding: calc($gap /2 ) $gap;
+    transition: color 0.3s ease;
+    &:visited {
+        color: $text-color;
+    }
+    &:hover {
+        color: $hover-color;
+    }
+}
+
+// Footer
+footer {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   margin-top: $gap;
+   width: 100%;
+   font-size: $button-font-size;
+   text-decoration: none;
+   text-align: center;
+}
+
+// Utility Classes
+.clazz-text-center {
+    text-align: center;
+  }
