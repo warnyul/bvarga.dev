@@ -41,7 +41,7 @@
     "terser-webpack-plugin": "^5.3.10",
     "webpack": "^5.96.1",
     "webpack-cli": "^5.0.0",
-    "webpack-dev-server": "^4.7.3"
+    "webpack-dev-server": "^5.0.0"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.7.1",
