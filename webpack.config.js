@@ -147,7 +147,7 @@ module.exports = {
       }
     }),
     new MangleCssClassPlugin({
-      classNameRegExp: '(fa|clazz)-([a-zA-Z0-9-]+)',
+      classNameRegExp: '((fa|clazz)-([a-zA-Z0-9-]+)|fa(b?)|)',
       mangleCssVariables: true,
       log: true,
     }),
