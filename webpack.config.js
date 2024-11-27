@@ -9,6 +9,7 @@ const {htmlWebpackPluginTemplateCustomizer} = require('template-ejs-loader');
 const HTMLInlineCSSWebpackPlugin = require("html-inline-css-webpack-plugin").default;
 const { PurgeCSSPlugin } = require('purgecss-webpack-plugin');
 const MangleCssClassPlugin = require('mangle-css-class-webpack-plugin');
+const HtmlInlineScriptWebpackPlugin = require('html-inline-script-webpack-plugin');
 
 const glob = require('glob');
 const path = require('path');
@@ -35,14 +36,7 @@ module.exports = {
       },
       {
         test: /\.ejs/,
-        use: [
-          {
-            loader: 'html-loader'
-          },
-          {
-            loader: 'template-ejs-loader',
-          },
-        ],
+        use: ['html-loader', 'template-ejs-loader'],
       },
       {
         test: /\.s?[ac]ss$/,
@@ -137,8 +131,8 @@ module.exports = {
         }
       }),
       filename: 'index.html',
-      inject: true,
-      hash: true,
+      inject: 'body',
+      hash: false,
       minify: {
         collapseWhitespace: true,
         removeComments: true,
@@ -153,6 +147,9 @@ module.exports = {
       log: true,
     }),
     new HTMLInlineCSSWebpackPlugin(),
+    new HtmlInlineScriptWebpackPlugin({
+      scriptMatchPattern: [/.*\.js?$/], // Match hashed JS files
+    }),
   ],
   optimization: {
     minimize: true,
