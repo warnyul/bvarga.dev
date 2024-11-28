@@ -11,7 +11,9 @@ const { PurgeCSSPlugin } = require('purgecss-webpack-plugin');
 const MangleCssClassPlugin = require('mangle-css-class-webpack-plugin');
 const HtmlInlineScriptWebpackPlugin = require('html-inline-script-webpack-plugin');
 const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
+const SitemapWebpackPlugin = require('sitemap-webpack-plugin').default;
 
+const baseUrl = 'https://bvarga.dev';
 const glob = require('glob');
 const path = require('path');
 const context = path.join(__dirname, 'src');
@@ -150,6 +152,17 @@ module.exports = {
     new HTMLInlineCSSWebpackPlugin(),
     new HtmlInlineScriptWebpackPlugin({
       scriptMatchPattern: [/.*\.js?$/], // Match hashed JS files
+    }),
+    new SitemapWebpackPlugin({
+      base: baseUrl,
+      paths: [
+        {
+          path: '/', 
+        }
+      ],
+      options: {
+        lastmod: true,
+      }
     }),
   ],
   optimization: {
