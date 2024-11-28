@@ -1,17 +1,6 @@
 @use "poppins";
-@use "fontawesome.scss";
-
-$font-family: 'Poppins', 'Arial', sans-serif;
-$background-color: #D9E2EC;
-$text-color: #00509E;
-$primary-color: #4B5563;
-$hover-color: #3CB371;
-$link-color: #FFF;
-$border-radius: 4px;
-$gap: 16px;
-$header-font-size: 24px;
-$button-padding: 24px;
-$button-font-size: 16px;
+@use "fontawesome";
+@use "variables" as *;
 
 // Reset
 * {
@@ -69,7 +58,7 @@ header {
 h1 {
     color: $text-color;
     margin: $gap 0px calc($gap * 0.75);
-    font-size: $header-font-size;
+    font-size: $font-size-medium;
     line-height: 1;
     font-weight: 700;
     text-align: center;
@@ -86,7 +75,7 @@ h1 {
     align-items: center;
     justify-content: center;
     text-decoration: none;
-    font-size: 16px;
+    font-size: $font-size-small;
     line-height: 24px;
     transition: background-color 0.3s ease;
 }
@@ -127,7 +116,7 @@ footer {
     justify-content: center;
     margin-top: $gap;
     width: 100%;
-    font-size: $button-font-size;
+    font-size: $font-size-small;
     text-decoration: none;
     text-align: center;
 }

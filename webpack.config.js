@@ -23,6 +23,7 @@ module.exports = {
   mode: "production",
     entry: {
         index: './src/js/index.js',
+        pageNotFound: './src/js/404.js',
     },
     output: {
         path: outputDir,
@@ -76,7 +77,7 @@ module.exports = {
     new CopyWebpackPlugin({
       patterns: [
         {
-          context: __dirname + "/src/asset/raw",
+          context: __dirname + "/src/assets/raw",
           from: "**",
         }
       ],
@@ -92,6 +93,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       alwaysWriteToDisk: true,
       scriptLoading: 'blocking',
+      chunks: ['index'],
       template: htmlWebpackPluginTemplateCustomizer({
         templatePath: 'src/views/index.ejs',
         templateEjsLoaderOption: {
@@ -135,6 +137,27 @@ module.exports = {
         }
       }),
       filename: 'index.html',
+      inject: 'body',
+      hash: false,
+      minify: {
+        collapseWhitespace: true,
+        removeComments: true,
+        minifyCSS: true,
+        minifyJS: true,
+      }
+    }),
+    new HtmlWebpackPlugin({
+      alwaysWriteToDisk: true,
+      scriptLoading: 'blocking',
+      chunks: ['pageNotFound'],
+      template: htmlWebpackPluginTemplateCustomizer({
+        templatePath: 'src/views/404.ejs',
+        templateEjsLoaderOption: {
+          data: {
+          },
+        }
+      }),
+      filename: '404.html',
       inject: 'body',
       hash: false,
       minify: {
