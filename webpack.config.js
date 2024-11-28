@@ -210,11 +210,16 @@ module.exports = {
     minimize: true,
     minimizer: [
       new CssMinimizerPlugin({
-        minimizerOptions: [
-          {
-              preset: 'advanced'
-          },
-        ],
+        minimizerOptions: {
+           preset: [
+            'advanced',
+            {
+              discardComments: {
+                removeAll: true,
+              },
+            },
+          ],
+        },
         minify: [
           CssMinimizerPlugin.cssnanoMinify,
         ]
