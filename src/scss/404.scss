@@ -1,5 +1,5 @@
-@import "poppins";
-@import "variables";
+@use "poppins";
+@use "variables" as *;
 
 // Reset
 body, html {
