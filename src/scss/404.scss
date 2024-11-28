@@ -1,0 +1,62 @@
+@import "poppins";
+@import "variables";
+
+// Reset
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: $font-family;
+    background-color: $background-color;
+    color: $text-color;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+// Main container
+.error-container {
+    text-align: center;
+    max-width: 640px;
+    margin: auto;
+    padding: $gap;
+
+    header h1 {
+        font-size: $font-size-large;
+        margin-bottom: $gap;
+        color: $text-color;
+    }
+
+    header p {
+        font-size: $font-size-medium;
+        margin-bottom: $gap;
+    }
+
+    img {
+        width: 300px;
+        height: 270px;
+        margin-bottom: $gap;
+        filter: brightness(0) saturate(100%) invert(20%) sepia(97%) saturate(1590%) hue-rotate(193deg) brightness(95%) contrast(102%);
+    }
+
+    .action p {
+        font-size: $font-size-small;
+        margin-bottom: calc($gap / 2); // Smaller gap for less important text
+    }
+
+    .home-link {
+        display: inline-block;
+        padding: calc($gap / 2) $gap; // Padding with gap-based scaling
+        font-size: $font-size-link;
+        font-weight: bold;
+        color: $link-color;
+        background-color: $primary-color;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+            background-color: $hover-color;
+        }
+    }
+}
