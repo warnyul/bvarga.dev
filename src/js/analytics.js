@@ -16,7 +16,4 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
   
 // Initialize Analytics and get a reference to the service
-const analytics = getAnalytics(app);
-
-// Export analytics
-module.exports = analytics;
+export const analytics = getAnalytics(app);

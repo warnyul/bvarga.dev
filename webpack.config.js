@@ -20,13 +20,14 @@ const context = path.join(__dirname, 'src');
 const outputDir = path.join(__dirname, 'dist');
 
 module.exports = {
-  mode: "production",
+    mode: "production",
     entry: {
         index: './src/js/index.js',
         pageNotFound: './src/js/404.js',
     },
     output: {
         path: outputDir,
+        publicPath: '',
         filename: '[name].[contenthash:8].js',
         sourceMapFilename: '[name].[contenthash:8].js.map',
         chunkFilename: '[id].[contenthash:8].js',
