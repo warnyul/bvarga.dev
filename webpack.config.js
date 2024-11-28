@@ -242,4 +242,9 @@ module.exports = {
     compress: true,
     port: 9000,
   },
+  ignoreWarnings: [
+    {
+      module: /.*node_modules.*/
+    }
+  ],
 };
