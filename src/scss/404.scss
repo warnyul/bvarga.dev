@@ -48,7 +48,7 @@ body, html {
         display: inline-block;
         padding: calc($gap / 2) $gap; // Padding with gap-based scaling
         font-size: $font-size-link;
-        font-weight: bold;
+        font-weight: 400;
         color: $link-color;
         background-color: $primary-color;
         text-decoration: none;
