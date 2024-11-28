@@ -1,18 +1,5 @@
-@import "poppins";
-@import "fontawesome";
-
-// Variables
-//$font-family: 'Roboto', sans-serif;
-//$background-color: #EAEAEA;
-//$text-color: #232323;
-//$primary-color: #000;
-//$hover-color: #333;
-//$link-color: #fff;
-//$border-radius: 4px;
-//$gap: 16px;
-//$header-font-size: 24px;
-//$button-padding: 24px;
-//$button-font-size: 16px;
+@use "poppins";
+@use "fontawesome.scss";
 
 $font-family: 'Poppins', 'Arial', sans-serif;
 $background-color: #D9E2EC;
@@ -122,11 +109,11 @@ h1 {
 
 .clazz-social-link-container a {
     display: inline-block;
-    color: $text-color;
+    color: $primary-color;
     padding: calc($gap /2 ) $gap;
     transition: color 0.3s ease;
     &:visited {
-        color: $text-color;
+        color: $primary-color;
     }
     &:hover {
         color: $hover-color;
@@ -135,17 +122,17 @@ h1 {
 
 // Footer
 footer {
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   margin-top: $gap;
-   width: 100%;
-   font-size: $button-font-size;
-   text-decoration: none;
-   text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: $gap;
+    width: 100%;
+    font-size: $button-font-size;
+    text-decoration: none;
+    text-align: center;
 }
 
 // Utility Classes
 .clazz-text-center {
     text-align: center;
-  }
+}
