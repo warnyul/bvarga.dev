@@ -1,5 +1,6 @@
 import '../scss/index.scss';
 import { analytics } from './analytics.js';
+import { logEvent } from "firebase/analytics";
 
 function trackButtonClick(obj) {
     const event = obj.innerText || obj.textContent;
