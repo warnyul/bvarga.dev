@@ -91,6 +91,7 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       alwaysWriteToDisk: true,
+      scriptLoading: 'blocking',
       template: htmlWebpackPluginTemplateCustomizer({
         templatePath: 'src/views/index.ejs',
         templateEjsLoaderOption: {
