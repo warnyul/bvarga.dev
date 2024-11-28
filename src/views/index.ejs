@@ -4,16 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Balázs Varga</title>
-    <meta name="description" content="Discover the professional profile of Balázs Varga. View links to LinkedIn, GitHub, Bluesky, and blog content.">
-    <meta name="keywords" content="Balázs Varga, LinkedIn, GitHub, Bluesky, Blog">
+    <meta name="description" content="Discover the professional profile of Balázs Varga. View links to LinkedIn, GitHub, Bluesky, and blog content. Connect now!">
     <meta name="author" content="Balázs Varga">
     <meta name="twitter:card" content="summary_large_image" />
-    <meta property="og:url" content="bvarga.dev" />
+    <meta property="og:url" content="<%- baseUrl %>" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Balázs Varga" />
-    <meta property="og:description" content="Discover the professional profile of Balázs Varga. View links to LinkedIn, GitHub, Bluesky, and blog content." />
-    <meta property="og:image" content="../assets/images/profile.png" />
-    <meta property="og:image:alt" content="Balázs Varga's profile picture" />
+    <meta property="og:description" content="Discover the professional profile of Balázs Varga. View links to LinkedIn, GitHub, Bluesky, and blog content. Connect now!" />
+    <meta property="og:image" content="<%- baseUrl + '/' + profilePictureUrlPath %>" />
+    <meta property="og:image:alt" content="Profile picture of Balázs Varga, CTO @ Apter" />
+    <meta property="og:image:width" content="1366" />
+    <meta property="og:image:height" content="1269" />
+    <link rel="canonical" href="<%- baseUrl %>" />
+    <link rel="preload" href="../assets/images/profile100w100h.png?as=webp" as="image">
+    <link rel="preload" href="../assets/fonts/Poppins-Bold-latin-ext.woff2" />
+    <link rel="preload" href="../assets/fonts/Poppins-Regular-latin-ext.woff2" />
+    <link rel="preload" href="../../node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.woff2" />
+    <link rel="preload" href="../../node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.woff2" />
+    <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "Person",
+          "name": "Balázs Varga",
+          "url": "<%- baseUrl %>",
+          "sameAs": [
+            "https://www.linkedin.com/in/-balazs-varga-/",
+            "https://github.com/warnyul",
+            "https://bsky.app/profile/balzsvarga.bsky.social",
+          ],
+          "image": "<%- baseUrl + '/' + profilePictureUrlPath %>",
+          "description": "Discover the professional profile of Balázs Varga. Links to LinkedIn, GitHub, Bluesky, and blog. Connect now!"
+        }
+        </script>
 </head>
 <body>
     <div class="clazz-container">
@@ -21,20 +43,20 @@
             <header>
                 <picture>
                     <source type="image/webp" srcset="../assets/images/profile100w100h.png?as=webp" />
-                    <img width="100" height="100" src="../assets/images/profile100w100h.png" alt="Balázs Varga" class="clazz-profile-image" />
+                    <img class="clazz-profile-image" src="../assets/images/profile100w100h.png" alt="Profile picture of Balázs Varga, CTO @ Apter" loading="lazy" width="100" height="100" />
                 </picture>
                 <h1 class="clazz-text-center">Balázs Varga</h1>
             </header>
 
             <% links.forEach(function(link) { %>
                 <div class="clazz-button-container">
-                    <a href="<%- link.url %>" target="_blank" rel="noopener noreferrer ugc"><%= link.name %></a>
+                    <a href="<%- link.url %>" aria-label="Visit <%= link.name %>" target="_blank" rel="noopener noreferrer ugc"><%= link.name %></a>
                 </div>
             <% }); %>
             <div class="clazz-social-links">
                 <% socialLinks.forEach(function(link) { %>
                     <div class="clazz-social-link-container">
-                        <a href="<%- link.url %>" aria-label="<%= link.name %>" target="_blank" rel="noopener noreferrer ugc">
+                        <a href="<%- link.url %>" aria-label="Visit <%= link.name %>" target="_blank" rel="noopener noreferrer ugc">
                             <i class="fa-brands fa-<%- link.icon %> fa-2xl"></i>
                         </a>
                     </div>

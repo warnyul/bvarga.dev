@@ -13,11 +13,14 @@ const HtmlInlineScriptWebpackPlugin = require('html-inline-script-webpack-plugin
 const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
 const SitemapWebpackPlugin = require('sitemap-webpack-plugin').default;
 
-const baseUrl = 'https://bvarga.dev';
+const { interpolateName } = require('loader-utils');
+const fs = require('fs');
 const glob = require('glob');
 const path = require('path');
+const { sources } = require('webpack');
 const context = path.join(__dirname, 'src');
 const outputDir = path.join(__dirname, 'dist');
+const baseUrl = 'https://bvarga.dev';
 
 module.exports = {
     mode: "production",
@@ -99,6 +102,19 @@ module.exports = {
         templatePath: 'src/views/index.ejs',
         templateEjsLoaderOption: {
           data: {
+            baseUrl: baseUrl,
+            profilePictureUrlPath: function() {
+              const pngPath = path.resolve(__dirname, 'src/assets/images/profile.png');
+              const pngContent = fs.readFileSync(pngPath);
+              return interpolateName(
+                { resourcePath: pngPath },
+                "[md4:contenthash:hex:20].[ext]",
+                {
+                  context: context,
+                  content: pngContent,
+                }
+              );
+          }(),
             links: [
               {
                 name: 'LinkedIn',
