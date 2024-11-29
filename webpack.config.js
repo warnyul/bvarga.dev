@@ -158,7 +158,7 @@ module.exports = {
       hash: false,
       minify: {
         collapseWhitespace: true,
-        removeComments: true,
+        removeComments: false,
         minifyCSS: true,
         minifyJS: true,
       }
@@ -179,7 +179,7 @@ module.exports = {
       hash: false,
       minify: {
         collapseWhitespace: true,
-        removeComments: true,
+        removeComments: false,
         minifyCSS: true,
         minifyJS: true,
       }
