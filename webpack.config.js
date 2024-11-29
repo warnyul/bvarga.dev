@@ -13,6 +13,7 @@ const HtmlInlineScriptWebpackPlugin = require('html-inline-script-webpack-plugin
 const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
 const SitemapWebpackPlugin = require('sitemap-webpack-plugin').default;
 const HtmlNewLineRemoverPlugin = require('./html-new-line-remover-plugin.js');
+const CspHtmlWebpackPlugin = require('csp-html-webpack-plugin');
 
 const { interpolateName } = require('loader-utils');
 const fs = require('fs');
@@ -177,6 +178,20 @@ module.exports = {
       }
     }),
     new HtmlNewLineRemoverPlugin(),
+    new CspHtmlWebpackPlugin(
+      {
+        'default-src': "'self'",
+        'script-src': ["'self'", "https://googletagmanager.com"],
+        'style-src': ["'self'"],
+        'img-src': ["'self'"],
+        'font-src': ["'self'"],
+        'connect-src': ["'self'", "https://google-analytics.com", "https://firebase.googleapis.com", "https://firebaseinstallations.googleapis.com"],
+      },
+      {
+        hashingMethod: 'sha256',
+        enabled: true,
+      }
+    ),
   ],
   optimization: {
     minimize: true,

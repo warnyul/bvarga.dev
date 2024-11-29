@@ -19,6 +19,7 @@
   "homepage": "https://bvarga.dev",
   "devDependencies": {
     "copy-webpack-plugin": "^12.0.0",
+    "csp-html-webpack-plugin": "^5.1.0",
     "css-loader": "^7.1.2",
     "css-minimizer-webpack-plugin": "^7.0.0",
     "cssnano-preset-advanced": "^7.0.0",
