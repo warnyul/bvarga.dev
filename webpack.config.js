@@ -200,8 +200,14 @@ module.exports = {
       new TerserPlugin({
           extractComments: true,
           terserOptions: {
+            compress: {
+              arguments: true,
+              passes: 3,
+            },
             mangle: true,
-            sourceMap: true
+            toplevel: true,
+            sourceMap: true,
+            nameCache: {},
           }
       }),
       new ImageMinimizerPlugin({
