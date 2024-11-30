@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
+import { getAnalytics, logEvent } from "firebase/analytics";
 
 // See: https://firebase.google.com/docs/web/learn-more#config-object
 const firebaseConfig = {
@@ -16,4 +16,16 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
   
 // Initialize Analytics and get a reference to the service
-export const analytics = getAnalytics(app);
+const analytics = getAnalytics(app);
+
+export function trackEvent(event, element, additionalData = {}) {
+    const eventName =  element.getAttribute('aria-label') || obj.innerText || obj.textContent;
+    const eventData = {
+        name: eventName,
+        page_location: window.location.href,
+        page_referrer: document.referrer,
+        page_title: document.title,
+        ...additionalData,
+    };
+    logEvent(analytics, event, eventData);
+}
