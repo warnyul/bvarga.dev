@@ -1,0 +1,39 @@
+{
+    "links":
+    [
+        {
+            "name": "LinkedIn",
+            "url": "https://www.linkedin.com/in/-balazs-varga-/"
+        },
+        {
+            "name": "Bluesky",
+            "url": "https://bsky.app/profile/balzsvarga.bsky.social"
+        },
+        {
+            "name": "GitHub",
+            "url": "https://github.com/warnyul"
+        },
+        {
+            "name": "The Apter Blog",
+            "url": "https://blog.apter.tech/"
+        }
+    ],
+    "socialLinks":
+    [
+        {
+            "icon": "linkedin",
+            "name": "LinkedIn",
+            "url": "https://www.linkedin.com/in/-balazs-varga-/"
+        },
+        {
+            "icon": "bluesky",
+            "name": "Bluesky",
+            "url": "https://bsky.app/profile/balzsvarga.bsky.social"
+        },
+        {
+            "icon": "github",
+            "name": "GitHub",
+            "url": "https://github.com/warnyul"
+        }
+    ]
+}
