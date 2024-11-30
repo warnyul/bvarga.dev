@@ -17,10 +17,14 @@ const { interpolateName } = require('loader-utils');
 const fs = require('fs');
 const glob = require('glob');
 const path = require('path');
-const { sources } = require('webpack');
 const context = path.join(__dirname, 'src');
 const outputDir = path.join(__dirname, 'dist');
 const baseUrl = 'https://bvarga.dev';
+
+const links = function() {
+  const links = fs.readFileSync(`${context}/data/links.json`);
+  return JSON.parse(links);
+}();
 
 module.exports = {
     mode: "production",
@@ -114,42 +118,8 @@ module.exports = {
                   content: pngContent,
                 }
               );
-          }(),
-            links: [
-              {
-                name: 'LinkedIn',
-                url: 'https://www.linkedin.com/in/-balazs-varga-/'
-              },
-              {
-                name: 'Bluesky',
-                url: 'https://bsky.app/profile/balzsvarga.bsky.social'
-              },
-              {
-                name: 'GitHub',
-                url: 'https://github.com/warnyul'
-              },
-              {
-                name: 'The Apter Blog',
-                url: 'https://blog.apter.tech/'
-              },
-            ],
-            socialLinks: [
-              {
-                icon: 'linkedin',
-                name: 'LinkedIn',
-                url: 'https://www.linkedin.com/in/-balazs-varga-/'
-              },
-              {
-                icon: 'bluesky',
-                name: 'Bluesky',
-                url: 'https://bsky.app/profile/balzsvarga.bsky.social'
-              },
-              {
-                icon: 'github',
-                name: 'GitHub',
-                url: 'https://github.com/warnyul'
-              },
-            ],
+            }(),
+            ...links,
           },
         }
       }),
