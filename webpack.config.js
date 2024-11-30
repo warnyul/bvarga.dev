@@ -12,6 +12,7 @@ const MangleCssClassPlugin = require('mangle-css-class-webpack-plugin');
 const HtmlInlineScriptWebpackPlugin = require('html-inline-script-webpack-plugin');
 const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
 const SitemapWebpackPlugin = require('sitemap-webpack-plugin').default;
+const HtmlNewLineRemoverPlugin = require('./html-new-line-remover-plugin.js');
 
 const { interpolateName } = require('loader-utils');
 const fs = require('fs');
@@ -175,6 +176,7 @@ module.exports = {
         lastmod: true,
       }
     }),
+    new HtmlNewLineRemoverPlugin(),
   ],
   optimization: {
     minimize: true,
