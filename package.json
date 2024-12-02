@@ -4,7 +4,7 @@
   "description": "Personal website and portfolio",
   "main": "src/index.html",
   "scripts": {
-    "build": "webpack --mode production --optimization-minimize --config webpack.config.js",
+    "build": "webpack --mode production --config webpack.config.js",
     "start": "npx webpack serve --mode production --optimization-minimize --config webpack.config.js --stats verbose"
   },
   "repository": {
@@ -28,7 +28,6 @@
     "html-inline-css-webpack-plugin": "^1.11.1",
     "html-inline-script-webpack-plugin": "^3.2.1",
     "html-loader": "^5.1.0",
-    "html-minifier": "^4.0.0",
     "html-minimizer-webpack-plugin": "^5.0.0",
     "html-webpack-plugin": "^5.6.3",
     "image-minimizer-webpack-plugin": "^4.1.1",

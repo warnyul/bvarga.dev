@@ -13,7 +13,7 @@ const HtmlInlineScriptWebpackPlugin = require('html-inline-script-webpack-plugin
 const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
 const SitemapWebpackPlugin = require('sitemap-webpack-plugin').default;
 const HtmlNewLineRemoverPlugin = require('./html-new-line-remover-plugin.js');
-const CspHtmlWebpackPlugin = require('csp-html-webpack-plugin');
+const CspHtmlWebpackPlugin = require('./inline-script-csp-html-webpack-plugin.js');
 
 const { interpolateName } = require('loader-utils');
 const fs = require('fs');
@@ -129,32 +129,36 @@ module.exports = {
       inject: 'body',
       hash: false,
       minify: {
+        processScripts: [
+          'application/ld+json'
+        ],
         collapseWhitespace: true,
         removeComments: false,
         minifyCSS: true,
         minifyJS: true,
+        html5: true,
       }
     }),
     new HtmlWebpackPlugin({
-      alwaysWriteToDisk: true,
-      scriptLoading: 'blocking',
-      chunks: ['pageNotFound'],
-      template: htmlWebpackPluginTemplateCustomizer({
-        templatePath: 'src/views/404.ejs',
-        templateEjsLoaderOption: {
-          data: {
-          },
-        }
-      }),
-      filename: '404.html',
-      inject: 'body',
-      hash: false,
-      minify: {
-        collapseWhitespace: true,
-        removeComments: false,
-        minifyCSS: true,
-        minifyJS: true,
-      }
+     alwaysWriteToDisk: true,
+     scriptLoading: 'blocking',
+     chunks: ['pageNotFound'],
+     template: htmlWebpackPluginTemplateCustomizer({
+       templatePath: 'src/views/404.ejs',
+       templateEjsLoaderOption: {
+         data: {
+         },
+       }
+     }),
+     filename: '404.html',
+     inject: 'body',
+     hash: false,
+     minify: {
+       collapseWhitespace: true,
+       removeComments: false,
+       minifyCSS: true,
+       minifyJS: true,
+     }
     }),
     new MangleCssClassPlugin({
       classNameRegExp: '(fa|clazz)-([a-zA-Z0-9-]+)',
@@ -179,18 +183,22 @@ module.exports = {
     }),
     new HtmlNewLineRemoverPlugin(),
     new CspHtmlWebpackPlugin(
-      {
-        'default-src': "'self'",
-        'script-src': ["'self'", "https://googletagmanager.com"],
-        'style-src': ["'self'"],
-        'img-src': ["'self'"],
-        'font-src': ["'self'"],
-        'connect-src': ["'self'", "https://google-analytics.com", "https://firebase.googleapis.com", "https://firebaseinstallations.googleapis.com"],
+     {
+       'default-src': "'self'",
+       'script-src': ["'self'", "https://www.googletagmanager.com"],
+       'style-src': ["'self'"],
+       'img-src': ["'self'"],
+       'font-src': ["'self'"],
+       'connect-src': ["'self'", "https://google-analytics.com", "https://firebase.googleapis.com", "https://firebaseinstallations.googleapis.com"],
+     },
+     {
+       hashingMethod: 'sha256',
+       enabled: true,
+       hashEnabled: {
+        'script-src': true,
+        'style-src': true
       },
-      {
-        hashingMethod: 'sha256',
-        enabled: true,
-      }
+     }
     ),
   ],
   optimization: {
@@ -217,7 +225,7 @@ module.exports = {
           terserOptions: {
             compress: {
               arguments: true,
-              passes: 3,
+              passes: 5,
             },
             mangle: true,
             toplevel: true,
