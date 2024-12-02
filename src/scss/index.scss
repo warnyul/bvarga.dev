@@ -1,5 +1,4 @@
 @use "poppins";
-@use "fontawesome";
 @use "variables" as *;
 
 // Reset
@@ -97,20 +96,16 @@ h1 {
 .clazz-social-link-container {
     a {
         display: inline-block;
-        color: $primary-color;
+        filter: brightness(0) saturate(100%) invert(34%) sepia(3%) saturate(2463%) hue-rotate(176deg) brightness(90%) contrast(90%);
         padding: calc($gap /2 ) $gap;
         transition: color 0.3s ease;
         &:visited {
-            color: $primary-color;
+            filter: brightness(0) saturate(100%) invert(34%) sepia(3%) saturate(2463%) hue-rotate(176deg) brightness(90%) contrast(90%);
         }
         &:hover {
-            color: $hover-color;
+            filter: brightness(0) saturate(100%) invert(60%) sepia(53%) saturate(460%) hue-rotate(94deg) brightness(88%) contrast(94%);
         }
     }
-}
-
-.fa-2xl {
-    line-height: 1;
 }
 
 // Footer

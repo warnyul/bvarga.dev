@@ -45,7 +45,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(png|jpg|jpeg|gif|svg|webp)$/i,
+        test: /\.(png|jpg|jpeg|gif|webp)$/i,
         type: 'asset/resource',
       },
       {
@@ -189,7 +189,7 @@ module.exports = {
        'style-src': ["'self'"],
        'img-src': ["'self'"],
        'font-src': ["'self'"],
-       'connect-src': ["'self'", "https://google-analytics.com", "https://firebase.googleapis.com", "https://firebaseinstallations.googleapis.com"],
+       'connect-src': ["'self'", "https://*.google-analytics.com", "https://firebase.googleapis.com", "https://firebaseinstallations.googleapis.com"],
      },
      {
        hashingMethod: 'sha256',
