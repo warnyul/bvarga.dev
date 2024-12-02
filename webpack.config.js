@@ -45,15 +45,15 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(png|jpg|jpeg|gif|svg|webp)$/,
+        test: /\.(png|jpg|jpeg|gif|svg|webp)$/i,
         type: 'asset/resource',
       },
       {
-        test: /\.ejs/,
+        test: /\.ejs/i,
         use: ['html-loader', 'template-ejs-loader'],
       },
       {
-        test: /\.s?[ac]ss$/,
+        test: /\.s?[ac]ss$/i,
         use: [
           MiniCssExtractPlugin.loader,
           {
