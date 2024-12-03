@@ -1,0 +1,17 @@
+name: On PR closed - Delete firebase hosting channel
+on:
+  pull_request:
+    types:
+      - closed
+jobs:
+  delete_firebase_channel:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: w9jds/firebase-action@818980820c18bcd6a2e3e4739c6fe174ce5b467f # v13.27.0
+        with:
+          args: hosting:channel:delete ${{ github.head_ref }} --force
+        env:
+          GCP_SA_KEY: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_BVARGA_FE600 }}
+          PROJECT_ID: bvarga-fe600
