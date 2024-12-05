@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Balázs Varga - Professional Profile</title>
-    <meta name="description" content="Discover the professional profile of Balázs Varga. View links to LinkedIn, GitHub, Bluesky, and blog content. Connect now!">
-    <meta name="keywords" content="Balázs Varga, CTO, Engineering Leader, Software Development, Mobile Development, LinkedIn, GitHub, Blog">
-    <meta name="author" content="Balázs Varga">
+    <title><%= title %></title>
+    <meta name="description" content="<%= description %> Connect now!">
+    <meta name="keywords" content="<%= name %>, CTO, Engineering Leader, Software Development, Mobile Development, LinkedIn, GitHub, Blog">
+    <meta name="author" content="<%= name %>">
     <meta name="twitter:card" content="summary_large_image" />
     <meta property="og:url" content="<%- baseUrl %>" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Balázs Varga" />
-    <meta property="og:description" content="Discover the professional profile of Balázs Varga. View links to LinkedIn, GitHub, Bluesky, and blog content. Connect now!" />
+    <meta property="og:title" content="<%= name %>" />
+    <meta property="og:description" content="<%= description %> Connect now!" />
     <meta property="og:image" content="<%- baseUrl + '/' + profilePictureUrlPath %>" />
-    <meta property="og:image:alt" content="Profile picture of Balázs Varga, CTO @ Apter" />
+    <meta property="og:image:alt" content="Profile picture of <%= name %>, CTO @ Apter" />
     <meta property="og:image:width" content="1366" />
     <meta property="og:image:height" content="1269" />
     <link rel="preload" href="../assets/fonts/Poppins-Bold-latin.woff2" as="font" type="font/woff2" crossorigin />
@@ -23,7 +23,7 @@
         {
             "@context": "https://schema.org",
             "@type": "Person",
-            "name": "Balázs Varga",
+            "name": "<%= name %>",
             "url": "<%- baseUrl %>",
             "sameAs": [
                 "https://www.linkedin.com/in/-balazs-varga-/",
@@ -31,7 +31,7 @@
                 "https://bsky.app/profile/balzsvarga.bsky.social"
             ],
             "image": "<%- `${baseUrl}/${profilePictureUrlPath}` %>",
-            "description": "Discover the professional profile of Balázs Varga. Links to LinkedIn, GitHub, Bluesky, and blog. Connect now!"
+            "description": "<%= description %> Connect now!"
         }
     </script>
 </head>
@@ -39,10 +39,9 @@
     <header>
         <picture>
             <source type="image/webp" srcset="../assets/images/profile100w100h.png?as=webp" />
-            <img class="clazz-profile-image" src="../assets/images/profile100w100h.png" alt="Profile picture of Balázs Varga, CTO @ Apter" loading="eager" width="100" height="100" />
+            <img class="clazz-profile-image" src="../assets/images/profile100w100h.png" alt="Profile picture of <%= name %>, CTO @ Apter" loading="eager" width="100" height="100" />
         </picture>
-        <h1>Balázs Varga<br/><span>CTO & Engineering Lead</span></h1>
-       <!--  <h2>CTO & Engineering Lead</h2> -->
+        <h1><%= name %><br/><span>CTO & Engineering Lead</span></h1>
     </header>
     <main>
         <nav class="clazz-profile-links" aria-label="Profile links">
@@ -66,7 +65,7 @@
         </nav>
     </main>
     <footer>
-        <p>© <%= (new Date()).getFullYear() %> Balázs Varga. All rights reserved.</p>
+        <p>© <%= (new Date()).getFullYear() %> <%= name %>. All rights reserved.</p>
     </footer>
 </body>
 </html>

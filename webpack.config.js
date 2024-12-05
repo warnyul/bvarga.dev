@@ -22,6 +22,9 @@ const path = require('path');
 const context = path.join(__dirname, 'src');
 const outputDir = path.join(__dirname, 'dist');
 const baseUrl = 'https://bvarga.dev';
+const userName = 'Balázs Varga';
+const pageTitle = `${userName} - Professional Profile`;
+const pageDescription = `Discover the professional profile of ${userName}. View links to LinkedIn, GitHub, Bluesky, and blog content.`;
 
 const links = function() {
   const links = fs.readFileSync(`${context}/data/links.json`);
@@ -109,6 +112,9 @@ module.exports = {
         templateEjsLoaderOption: {
           data: {
             baseUrl: baseUrl,
+            title: pageTitle,
+            name: userName,
+            description: `${pageDescription}`,
             profilePictureUrlPath: function() {
               const pngPath = path.resolve(__dirname, 'src/assets/images/profile.png');
               const pngContent = fs.readFileSync(pngPath);
@@ -182,14 +188,14 @@ module.exports = {
       }
     }),
     new FaviconsWebpackPlugin({
-      logo: './src/favicon.png',
+      logo: './src/favicon.svg',
       mode: 'webapp',
-      outputPath: ".",
+      prefix: '',
       favicons: {
-        appName: 'Balázs Varga - Professional Profile',
-        appDescription: "Balázs Varga",
-        developerName: "Balázs Varga",
-        developerURL: "https://bvarga.dev",
+        appName: pageTitle,
+        appDescription: pageDescription,
+        developerName: userName,
+        developerURL: baseUrl,
         background: "#fff",
         theme_color: "#fff",
       }
