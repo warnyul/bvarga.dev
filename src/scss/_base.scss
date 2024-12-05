@@ -1,0 +1,17 @@
+@use "variables" as *;
+
+// Reset
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+  
+// General styles
+html, body {
+    font-family: $font-family;
+    height: 100%;
+    margin: 0;
+    color: $text-color;
+    background: $background-color;
+}

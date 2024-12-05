@@ -1,42 +1,25 @@
 @use "poppins";
 @use "variables" as *;
+@use "base";
 
-// Reset
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-  
-// General styles
-html, body {
-    font-family: $font-family;
-    height: 100%;
-    margin: 0;
-    background: $background-color;
-}
-
-.clazz-container {
+body {
     width: 100%;
     min-height:100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: $gap;
-    position: relative;
-}
 
-.clazz-content {
-    flex: 1 0 auto;
-    width: 100%;
-    max-width: 640px;
+    > * {
+        width: 100%;
+        min-width: 300px;
+        max-width: 640px;
+    }
 }
 
 // Header
 header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    text-align: center;
     margin: $gap 0px calc($gap * 2);
 }
 
@@ -48,31 +31,41 @@ header {
 }
 
 h1 {
-    color: $text-color;
     margin: $gap 0px calc($gap * 0.75);
-    font-size: $font-size-medium;
-    line-height: 1;
+    font-size: $font-size-large;
     font-weight: 700;
-    text-align: center;
+    > span {
+        font-size: $font-size-medium;
+        margin-bottom: $gap;
+    }
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    gap: $gap
+}
+
+.clazz-profile-links {
+    display: flex;
+    flex-direction: column;
+    gap: $gap;
 }
 
 // Button Styles
-.clazz-button-container 
-{
-    margin-bottom: $gap;
-    a {
-        background-color: $primary-color;
-        border-radius: $border-radius;
-        color: $link-color;
-        padding: $button-padding;
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-decoration: none;
-        font-size: $font-size-small;
-        line-height: 24px;
-        transition: background-color 0.3s ease;
+.clazz-button {
+    display: block;
+    text-align: center;
+    background-color: $primary-color;
+    color: $link-color;
+    padding: $button-padding;
+    border-radius: $border-radius;
+    text-decoration: none;
+    font-size: $font-size-link;
+    transition: background-color 0.3s;
+
+    &:hover {
+        background-color: $hover-color;
     }
 }
 
@@ -85,10 +78,8 @@ h1 {
 // Social Links
 .clazz-social-links {
     display: flex;
-    align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    width: 100%;
     margin-bottom: $gap;
     gap: calc($gap / 2);
 }
@@ -110,13 +101,13 @@ h1 {
 
 // Footer
 footer {
+    flex-direction: column;
     display: flex;
+    flex: 1 0 auto;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
     margin-top: $gap;
-    width: 100%;
     font-size: $font-size-small;
-    text-decoration: none;
     text-align: center;
 }
 

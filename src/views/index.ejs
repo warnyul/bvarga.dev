@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Balázs Varga</title>
+    <title>Balázs Varga - Professional Profile</title>
     <meta name="description" content="Discover the professional profile of Balázs Varga. View links to LinkedIn, GitHub, Bluesky, and blog content. Connect now!">
+    <meta name="keywords" content="Balázs Varga, CTO, Engineering Leader, Software Development, Mobile Development, LinkedIn, GitHub, Blog">
     <meta name="author" content="Balázs Varga">
     <meta name="twitter:card" content="summary_large_image" />
     <meta property="og:url" content="<%- baseUrl %>" />
@@ -35,38 +36,37 @@
     </script>
 </head>
 <body>
-    <div class="clazz-container">
-        <div class="clazz-content">
-            <header>
-                <picture>
-                    <source type="image/webp" srcset="../assets/images/profile100w100h.png?as=webp" />
-                    <img class="clazz-profile-image" src="../assets/images/profile100w100h.png" alt="Profile picture of Balázs Varga, CTO @ Apter" loading="eager" width="100" height="100" />
-                </picture>
-                <h1 class="clazz-text-center">Balázs Varga</h1>
-            </header>
-
+    <header>
+        <picture>
+            <source type="image/webp" srcset="../assets/images/profile100w100h.png?as=webp" />
+            <img class="clazz-profile-image" src="../assets/images/profile100w100h.png" alt="Profile picture of Balázs Varga, CTO @ Apter" loading="eager" width="100" height="100" />
+        </picture>
+        <h1>Balázs Varga<br/><span>CTO & Engineering Lead</span></h1>
+       <!--  <h2>CTO & Engineering Lead</h2> -->
+    </header>
+    <main>
+        <nav class="clazz-profile-links" aria-label="Profile links">
             <% links.forEach(function(link) { %>
-                <div class="clazz-button-container">
-                    <a href="<%- link.url %>" aria-label="Visit <%= link.name %>" target="_blank" rel="noopener noreferrer ugc"><%= link.name %></a>
-                </div>
+                <a class="clazz-button" href="<%- link.url %>" aria-label="Visit <%= link.name %>" target="_blank" rel="noopener noreferrer ugc"><%= link.name %></a>
             <% }); %>
-            <div class="clazz-social-links">
-                <% socialLinks.forEach(function(link) { %>
-                    <div class="clazz-social-link-container">
-                        <a href="<%- link.url %>" aria-label="Visit <%= link.name %>" target="_blank" rel="noopener noreferrer ugc">
-                            <%- include(`../assets/images/fa6-brands-${link.icon}.svg`) %>
-                        </a>
-                    </div>
-                <% }); %>
+        </nav>
+        <nav class="clazz-social-links" aria-label="Social links">
+            <% socialLinks.forEach(function(link) { %>
                 <div class="clazz-social-link-container">
-                    <a class="clazz-copy-link" href="#" aria-label="Copy link" rel="noopener">
-                        <%- include(`../assets/images/fa6-solid-arrow-up-right-from-square.svg`) %>
+                    <a href="<%- link.url %>" aria-label="Visit <%= link.name %>" target="_blank" rel="noopener noreferrer ugc">
+                        <%- include(`../assets/images/fa6-brands-${link.icon}.svg`) %>
                     </a>
                 </div>
+            <% }); %>
+            <div class="clazz-social-link-container">
+                <a class="clazz-copy-link" href="#" aria-label="Copy link" rel="noopener">
+                    <%- include(`../assets/images/fa6-solid-arrow-up-right-from-square.svg`) %>
+                </a>
             </div>
-            <footer>
-            </footer>
-        </div>
-    </div>
+        </nav>
+    </main>
+    <footer>
+        <p>© <%= (new Date()).getFullYear() %> Balázs Varga. All rights reserved.</p>
+    </footer>
 </body>
 </html>
