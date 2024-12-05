@@ -34,11 +34,10 @@ h1 {
     margin: $gap 0px calc($gap * 0.75);
     font-size: $font-size-large;
     font-weight: 700;
-}
-
-h2 {
-    font-size: $font-size-medium;
-    margin-bottom: $gap;
+    > span {
+        font-size: $font-size-medium;
+        margin-bottom: $gap;
+    }
 }
 
 main {
