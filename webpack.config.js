@@ -1,6 +1,6 @@
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
-//const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const HtmlMinimizerPlugin = require('html-minimizer-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -179,6 +179,19 @@ module.exports = {
       ],
       options: {
         lastmod: true,
+      }
+    }),
+    new FaviconsWebpackPlugin({
+      logo: './src/favicon.png',
+      mode: 'webapp',
+      outputPath: ".",
+      favicons: {
+        appName: 'Balázs Varga - Professional Profile',
+        appDescription: "Balázs Varga",
+        developerName: "Balázs Varga",
+        developerURL: "https://bvarga.dev",
+        background: "#fff",
+        theme_color: "#fff",
       }
     }),
     new HtmlNewLineRemoverPlugin(),
