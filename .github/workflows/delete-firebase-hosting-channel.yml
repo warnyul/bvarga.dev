@@ -11,7 +11,8 @@ jobs:
       - uses: actions/checkout@v4
       - uses: w9jds/firebase-action@818980820c18bcd6a2e3e4739c6fe174ce5b467f # v13.27.0
         with:
-          args: hosting:channel:delete ${{ github.head_ref }} --force
+          # Extracts the full channel name from the PR number and feeds it to the delete command
+          args: hosting:channel:list | grep 'pr${{ github.event.pull_request.number }}' | cut --delimeter ' ' --fields 2 | xargs -I {} firebase hosting:channel:delete --force {}
         env:
           GCP_SA_KEY: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_BVARGA_FE600 }}
           PROJECT_ID: bvarga-fe600
