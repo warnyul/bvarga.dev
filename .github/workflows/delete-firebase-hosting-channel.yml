@@ -9,7 +9,7 @@ jobs:
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
-      - uses: w9jds/firebase-action@818980820c18bcd6a2e3e4739c6fe174ce5b467f # v13.27.0
+      - uses: w9jds/firebase-action@12e7dd1a31239567f9b4d398e6c1dc9f1c6fc70a # v13.28.0
         with:
           # Extracts the full channel name from the PR number and feeds it to the delete command
           args: hosting:channel:list | grep 'pr${{ github.event.pull_request.number }}' | cut --delimeter ' ' --fields 2 | xargs -I {} firebase hosting:channel:delete --force {}
