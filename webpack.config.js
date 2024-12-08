@@ -14,7 +14,7 @@ const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
 const SitemapWebpackPlugin = require('sitemap-webpack-plugin').default;
 const HtmlNewLineRemoverPlugin = require('./html-new-line-remover-plugin.js');
 const CspHtmlWebpackPlugin = require('./inline-script-csp-html-webpack-plugin.js');
-
+const generateFirebaseJson = require('./generate-firebase-json.js');
 const { interpolateName } = require('loader-utils');
 const fs = require('fs');
 const glob = require('glob');
@@ -213,14 +213,19 @@ module.exports = {
         'object-src': "'none'",
         'require-trusted-types-for': "'script'",
       },
-     {
-       hashingMethod: 'sha256',
-       enabled: true,
-       hashEnabled: {
-        'script-src': true,
-        'style-src': true
-      },
-     }
+      {
+        hashingMethod: 'sha384',
+        enabled: true,
+        hashEnabled: {
+          'script-src': true,
+          'style-src': true
+        },
+        nonceEnabled: {
+          'script-src': true,
+          'style-src': true,
+        },
+        processFn: generateFirebaseJson,
+      }
     ),
   ],
   optimization: {
