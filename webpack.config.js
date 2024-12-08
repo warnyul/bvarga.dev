@@ -202,14 +202,17 @@ module.exports = {
     }),
     new HtmlNewLineRemoverPlugin(),
     new CspHtmlWebpackPlugin(
-     {
-       'default-src': "'self'",
-       'script-src': ["'self'", "https://www.googletagmanager.com"],
-       'style-src': ["'self'"],
-       'img-src': ["'self'"],
-       'font-src': ["'self'"],
-       'connect-src': ["'self'", "https://*.google-analytics.com", "https://firebase.googleapis.com", "https://firebaseinstallations.googleapis.com"],
-     },
+      {
+        'base-uri': "'self'",
+        'default-src': "'self'",
+        'script-src': ["'strict-dynamic'", 'https://www.googletagmanager.com', "'unsafe-inline'"],
+        'style-src': ["'unsafe-inline'"],
+        'img-src': ["'self'"],
+        'font-src': ["'self'"],
+        'connect-src': ["'self'", 'https://*.google-analytics.com', 'https://firebase.googleapis.com', 'https://firebaseinstallations.googleapis.com'],
+        'object-src': "'none'",
+        'require-trusted-types-for': "'script'",
+      },
      {
        hashingMethod: 'sha256',
        enabled: true,
