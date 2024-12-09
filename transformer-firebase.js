@@ -27,7 +27,7 @@ module.exports = (headers) => {
                     headers: [
                         {
                             key: 'Cache-Control',
-                            value: 's-maxage=31536000,immutable',
+                            value: 'max-age=31536000,s-maxage=31536000,immutable',
                         },
                     ],
                 },
@@ -36,20 +36,11 @@ module.exports = (headers) => {
                     headers: [
                         {
                             key: 'Cache-Control',
-                            value: 's-maxage=31536000,immutable',
+                            value: 'max-age=31536000,s-maxage=31536000,immutable',
                         },
                     ],
                 },
                 ...headers,
-                //{
-                //    source: '**',
-                //    headers: Object.entries({
-                //        ...headers,
-                //    }).map(([key, value]) => ({
-                //        key,
-                //        value,
-                //    })),
-                //},
             ],
         },
     };
