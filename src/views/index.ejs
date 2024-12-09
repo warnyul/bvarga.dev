@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" itemscope itemtype="https://schema.org/WebPage">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -35,24 +35,41 @@
         }
     </script>
 </head>
-<body>
+<body itemprop="about" itemscope itemtype="https://schema.org/Person">
     <header>
         <picture>
             <source type="image/webp" srcset="../assets/images/profile100w100h.png?as=webp" />
-            <img class="clazz-profile-image" src="../assets/images/profile100w100h.png" alt="Profile picture of <%= name %>, CTO @ Apter" loading="eager" width="100" height="100" />
+            <img class="clazz-profile-image"
+                src="../assets/images/profile100w100h.png"
+                alt="Profile picture of <%= name %>, CTO @ Apter"
+                itemprop="image" 
+                loading="eager"
+                width="100"
+                height="100" />
         </picture>
-        <h1><%= name %><br/><span>CTO & Engineering Lead</span></h1>
+        <h1><span itemprop="name"><%= name %></span><br/><span itemprop="jobTitle">CTO & Engineering Lead</span></h1>
     </header>
     <main>
         <nav class="clazz-profile-links" aria-label="Profile links">
             <% links.forEach(function(link) { %>
-                <a class="clazz-button" href="<%- link.url %>" aria-label="Visit <%= link.name %>" target="_blank" rel="noopener noreferrer ugc"><%= link.name %></a>
+                <a class="clazz-button"
+                    href="<%- link.url %>"
+                    aria-label="Visit <%= link.name %>"
+                    target="_blank"
+                    rel="noopener noreferrer ugc"
+                    itemprop="url">
+                    <%= link.name %>
+                </a>
             <% }); %>
         </nav>
         <nav class="clazz-social-links" aria-label="Social links">
             <% socialLinks.forEach(function(link) { %>
                 <div class="clazz-social-link-container">
-                    <a href="<%- link.url %>" aria-label="Visit <%= link.name %>" target="_blank" rel="noopener noreferrer ugc">
+                    <a href="<%- link.url %>"
+                        aria-label="Visit <%= link.name %>"
+                        target="_blank"
+                        rel="noopener noreferrer ugc"
+                        itemprop="sameAs">
                         <%- include(`../assets/images/fa6-brands-${link.icon}.svg`) %>
                     </a>
                 </div>
