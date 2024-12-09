@@ -23,6 +23,13 @@ jobs:
           key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
       - name: Build and Test
         run: ./scripts/build.sh
+      - name: Save firebase.json
+        uses: actions/cache/save@1bd1e32a3bdc45362d1e726936510720a7c30a57 # v4.2.0
+        env:
+          cache-name: firebase
+        with:
+          path: firebase.json
+          key: ${{ github.head_ref }}      
       - uses: FirebaseExtended/action-hosting-deploy@0cbcac4740c2bfb00d632f0b863b57713124eb5a # v0.9.0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
