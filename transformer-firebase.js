@@ -15,12 +15,6 @@ module.exports = (headers) => {
                 '**/.*',
                 '**/node_modules/**',
             ],
-            rewrites: [
-                {
-                    "source": "**",
-                    "destination": "/404.html"
-                },
-            ],
             headers: [
                 {
                     source: '**/*.@(ico|jpg|jpeg|gif|png|webp|js.map|js|css|txt|html)',
