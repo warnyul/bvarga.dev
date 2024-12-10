@@ -13,7 +13,7 @@ const HtmlInlineScriptWebpackPlugin = require('html-inline-script-webpack-plugin
 const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
 const SitemapWebpackPlugin = require('sitemap-webpack-plugin').default;
 const HtmlNewLineRemoverPlugin = require('./html-new-line-remover-plugin.js');
-const CspHtmlWebpackPlugin = require('./inline-script-csp-html-webpack-plugin.js');
+const CspHtmlWebpackPlugin = require('@melloware/csp-webpack-plugin');
 const generateFirebaseJson = require('./generate-firebase-json.js');
 const { interpolateName } = require('loader-utils');
 const fs = require('fs');
@@ -44,6 +44,7 @@ module.exports = {
         sourceMapFilename: '[name].[contenthash:8].js.map',
         chunkFilename: '[id].[contenthash:8].js',
         clean: true,
+        crossOriginLoading: 'anonymous',
     },
   module: {
     rules: [
