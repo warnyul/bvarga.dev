@@ -17,7 +17,7 @@ jobs:
         with:
           path: firebase.json
           key: ${{ github.head_ref }}
-      - uses: w9jds/firebase-action@12e7dd1a31239567f9b4d398e6c1dc9f1c6fc70a # v13.28.0
+      - uses: w9jds/firebase-action@b149fcd86198236adeebd9ba3dcafe5da86eb0cd # v13.29.1
         if: steps.cache-restore-firebase-json.outputs.cache-hit == 'true'
         with:
           # Extracts the full channel name from the PR number and feeds it to the delete command
